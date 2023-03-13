@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --content-pading-xl: 90px;
+    --content-pading-md: 46px;
+    --content-pading-sm: 24px;
+    --primary-color: #ed9338;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Poppins;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(4px);
+    z-index: 3;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px var(--content-pading-xl);
+    align-items: center;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 16pt;
+}
+
+.toggle .toggle-btn {
+    position: absolute;
+    opacity: 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    padding: 24px;
+}
+
+.nav-item:hover {
+    color: var(--primary-color);
+}
+
+button:focus {
+    outline: none !important;
+    border: var(--primary-color) 1px solid;
+    box-shadow: 0 0 6px var(--primary-color);
+}
+
+.toggle-button {
+    height: 44px;
+    width: 44px;
+    box-sizing: border-box;
+    display: none;
+    justify-content: center;
+    background: none;
+    border: none;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #0a0b0d;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+#root {
+    min-height: 100vh;
+    background-color: #0a0b0d;
+}
+
+a {
+    text-decoration: none;
+}
+
+.grid-wrapper {
+    padding: 0px var(--content-pading-xl);
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.content img {
+    width: 100%;
+}
+
+.newsletter {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h2 {
+    text-align: center;
+    padding: 40px 0px;
+}
+
+#mainContent {
+    padding: 40px var(--content-pading-md);
+}
+
+footer {
+    background-color: #0a0b0d;
+    text-align: center;
+    padding: 24px 0px;
+}
+
+footer a {
+    padding: 24px 0px;
+}
+
+input:focus {
+    outline: none !important;
+    border: var(--primary-color) 1px solid;
+    box-shadow: 0 0 6px var(--primary-color);
+}
+
+a:focus {
+    outline: none !important;
+    border: var(--primary-color) 1px solid;
+    box-shadow: 0 0 4px var(--primary-color);
+}
