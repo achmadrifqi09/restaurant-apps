@@ -1,5 +1,5 @@
 import FavoriteRestaurant from '../datas/favorite-restaurant';
-import '../views/components/button/floating-button';
+import createLikeButtonTemplate from '../views/templates/like-button';
 
 const LikeButton = {
     async init({ likeButtonContainer, restaurant }) {
@@ -23,8 +23,7 @@ const LikeButton = {
     },
 
     _renderLike() {
-        this._likeButtonContainer.innerHTML =
-            '<floating-button id="likeButton" urlIcon="/icons/unlike.webp" aria-label="like-button"></floating-button>';
+        this._likeButtonContainer.innerHTML = createLikeButtonTemplate('like');
 
         const likeButton = document.querySelector('#likeButton');
         likeButton.addEventListener('click', async () => {
@@ -34,9 +33,7 @@ const LikeButton = {
     },
 
     _renderLiked() {
-        this._likeButtonContainer.innerHTML =
-            '<floating-button id="likeButton" urlIcon="/icons/like.webp" aria-label="unlike-button"></floating-button>';
-
+        this._likeButtonContainer.innerHTML = createLikeButtonTemplate('unlike');
         const likeButton = document.querySelector('#likeButton');
         likeButton.addEventListener('click', async () => {
             await FavoriteRestaurant.deleteRestaurant(this._restaurant.id);

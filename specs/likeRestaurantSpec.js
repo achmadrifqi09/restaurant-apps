@@ -14,9 +14,7 @@ describe('like restaurant', () => {
         await TestFactories.createLikeButtonPresenterWithRestaurant({
             id: 'rqdv5juczeskfw1e867',
         });
-        expect(
-            document.querySelector('[aria-label="like-button"]')
-        ).toBeTruthy();
+        expect(document.querySelector('[aria-label="like"]')).toBeTruthy();
     });
 
     it('should not show the unlike button when the restaurant has not been liked before', async () => {
@@ -24,9 +22,7 @@ describe('like restaurant', () => {
             id: 'rqdv5juczeskfw1e867',
         });
 
-        expect(
-            document.querySelector('[aria-label="unlike-button"]')
-        ).toBeFalsy();
+        expect(document.querySelector('[aria-label="unlike"]')).toBeFalsy();
     });
 
     it('should be able to like the restaurant', async () => {

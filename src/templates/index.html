@@ -53,11 +53,18 @@
         <nav>
             <div class="nav-container">
                 <div class="nav-brand">
-                    <img
-                        src="./images/resto.webp"
-                        alt="Logo Resto X"
-                        width="110px"
-                    />
+                    <picture>
+                        <source
+                            media="(max-width: 600px)"
+                            width="110px"
+                            srcset="/images/resto-small.jpg"
+                        />
+                        <img
+                            src="./images/resto-large.jpg"
+                            alt="logo RestoX"
+                            width="110px"
+                        />
+                    </picture>
                 </div>
                 <button class="toggle-button" id="toggleButton">
                     <svg

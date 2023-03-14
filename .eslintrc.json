@@ -20,5 +20,5 @@
         "import/prefer-default-export": 0,
         "no-return-assign": 0
     },
-    "plugins": ["jasmine"]
+    "plugins": ["jasmine", "plugin:codeceptjs/recommended"]
 }

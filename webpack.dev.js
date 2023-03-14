@@ -12,12 +12,13 @@ module.exports = merge(common, {
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'POST',
-            'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+            'Access-Control-Allow-Headers':
+                'X-Requested-With, content-type, Authorization',
         },
         client: {
             overlay: {
                 errors: true,
-                warnings: true,
+                warnings: false,
             },
         },
         compress: true,

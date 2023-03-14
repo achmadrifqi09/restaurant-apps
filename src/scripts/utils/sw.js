@@ -2,10 +2,7 @@ import 'regenerator-runtime/runtime';
 import { setCacheNameDetails } from 'workbox-core';
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import {
-    StaleWhileRevalidate,
-    NetworkFirst,
-} from 'workbox-strategies';
+import { StaleWhileRevalidate, NetworkFirst, CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 
 setCacheNameDetails({
@@ -40,8 +37,22 @@ registerRoute(
 registerRoute(
     /^https:\/\/restaurant-api\.dicoding\.dev\/images/,
     new NetworkFirst({
-        cacheName: 'image-cache',
+        cacheName: 'image-cache-api',
         plugins: [
+            new ExpirationPlugin({
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+                maxEntries: 50,
+            }),
+        ],
+    }),
+);
+
+registerRoute(
+    ({ request }) => request.destination === 'image',
+    new CacheFirst({
+        cacheName: 'image-cache-local',
+        plugins: [
+            // Don't cache more than 50 items, and expire them after 30 days
             new ExpirationPlugin({
                 maxAgeSeconds: 60 * 60 * 24 * 30,
                 maxEntries: 50,

@@ -31,6 +31,19 @@
     .grid-wrapper {
         padding: 0px var(--content-pading-md);
     }
+    .wrapper-column {
+        flex-direction: column;
+        padding: 0px 46px;
+    }
+    .wrapper-review {
+        max-width: 100%;
+    }
+    .wrapper-left-content {
+        width: 100%;
+    }
+    .wrapper-right-content {
+        max-width: 100%;
+    }
 
     #mainContent {
         padding: 40px var(--content-pading-md);
@@ -51,5 +64,9 @@
 
     #mainContent {
         padding: 40px var(--content-pading-sm);
+    }
+    
+    .wrapper-column {
+        padding: 0px 24px;
     }
 }

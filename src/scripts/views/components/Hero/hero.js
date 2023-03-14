@@ -16,24 +16,28 @@ class HeroComponent extends HTMLElement {
         <style>
             .hero {
                 min-height: 100vh;
-                background-image: url(${this._contents.urlImage});
-                background-position: center;
-                background-size: cover;
-                background-attachment: fixed;
             }
-            .hero-bg {
-                width: 100%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.6);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                flex-direction: column;
-                box-sizing: border-box;
-                padding: 0px var(--content-pading-xl);
+            .bg{
+                width : 100vw;
+                height : 100vh;
+                object-fit: cover;
+                position: absolute;
+                z-index: 0;
             }
 
+            .hero-content{
+                position: relative;
+                z-index: 1;
+                width : 100vw;
+                height : 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0px var(--content-pading-xl);
+                box-sizing: border-box;
+                background: rgba(0, 0, 0, 0.6);
+            }
             .hero .title {
                 font-size: 24pt;
                 font-weight: 600;
@@ -60,17 +64,26 @@ class HeroComponent extends HTMLElement {
             }
         </style>
         <section class="hero" id="hero">
-            <div class="hero-bg">
+             <picture>
+                <source
+                    class="bg"
+                    media="(max-width: 600px)"
+                    srcset="${this._contents.urlImageSmall}"/>
+                <img
+                     class="bg"
+                    src="${this._contents.urlImageLarge}"
+                    alt="logo RestoX"/>
+            </picture>
+            <div class="hero-content">
                 <span class="title">${this._contents.heading}</span>
                 <span class="sub-title">
-                   ${this._contents.subheading}
+                ${this._contents.subheading}
                 </span>
                 <button-link
                     text=" ${this._contents.cta_text}"
-                    url="#restaurant"
-                >
+                    url="#mainContent">
                 </button-link>
-            </div>
+            <div>
         </section>`;
     }
 }

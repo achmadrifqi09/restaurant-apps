@@ -23,7 +23,7 @@ describe('unlike restaurant', () => {
         });
 
         expect(
-            document.querySelector('[aria-label="unlike-button"]')
+            document.querySelector('[aria-label="unlike"]')
         ).toBeTruthy();
     });
 
@@ -33,7 +33,7 @@ describe('unlike restaurant', () => {
         });
 
         expect(
-            document.querySelector('[aria-label="like this restaurant"]')
+            document.querySelector('[aria-label="like"]')
         ).toBeFalsy();
     });
 
@@ -43,7 +43,7 @@ describe('unlike restaurant', () => {
         });
 
         document
-            .querySelector('[aria-label="unlike-button"]')
+            .querySelector('[aria-label="unlike"]')
             .dispatchEvent(new Event('click'));
 
         expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([]);

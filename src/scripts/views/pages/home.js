@@ -2,6 +2,7 @@ import '../components/Hero/hero';
 import heroContent from '../../../hero-data.json';
 import DicodingRestaurant from '../../datas/restaurant-source';
 import '../components/toast/toast';
+import createCardImageTemplate from '../templates/card-image';
 
 const Home = {
     async render() {
@@ -10,7 +11,7 @@ const Home = {
                 <hero-component></hero-component>
                 <div class="wrapper-main-content" id="mainContent" tabindex="0">
                     <h2>Explore Restaurant</h2>
-                    <grid-layout itemStyle="card-image" minWidthItem="300"></grid-layout>
+                    <div class="grid-large-items"></div>
                 </div>   
             </div>
     `;
@@ -18,11 +19,14 @@ const Home = {
 
     async afterRender() {
         const hero = document.querySelector('hero-component');
-        const listOfRestaurant = document.querySelector('grid-layout');
+        const wrapperCardRestaurant = document.querySelector('.grid-large-items');
         hero.content = heroContent;
         try {
             const dataRestaurant = await DicodingRestaurant.listRestaurant();
-            listOfRestaurant.contents = dataRestaurant;
+            dataRestaurant.forEach((restaurant) => {
+                wrapperCardRestaurant.innerHTML +=
+                    createCardImageTemplate(restaurant);
+            });
         } catch {
             const container = document.querySelector('.container');
             const toast = document.createElement('toast-component');
